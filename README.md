@@ -34,7 +34,7 @@ A logistics coordinator sees stock at several locations, identifies an approachi
 | Document | Purpose |
 | --- | --- |
 | [Product and MVP](docs/PRODUCT.md) | Reference review, scope, workflows, screens, and acceptance criteria |
-| [Architecture](docs/ARCHITECTURE.md) | Stack, data model, APIs, stock accounting, and offline behavior |
+| [Architecture](docs/architecture.md) | Stack, data model, APIs, stock accounting, and offline behavior |
 | [Roadmap](docs/ROADMAP.md) | Milestones, dependencies, estimates, and release gates |
 | [GitHub project setup](docs/GITHUB_PROJECT.md) | Repository settings, project board, labels, and publication sequence |
 | [Issue backlog](docs/BACKLOG.md) | Actionable work with dependencies and completion criteria |
