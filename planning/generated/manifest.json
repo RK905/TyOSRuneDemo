@@ -1,0 +1,402 @@
+[
+  {
+    "id": "SUS-001",
+    "title": "[SUS-001] Establish project identity and open-source release policy",
+    "body_file": "planning/generated/SUS-001.md",
+    "labels": [
+      "area:foundation",
+      "priority:P1"
+    ],
+    "milestone": "M0 — Runnable foundation",
+    "depends_on": []
+  },
+  {
+    "id": "SUS-002",
+    "title": "[SUS-002] Restore a runnable web application and routing demo",
+    "body_file": "planning/generated/SUS-002.md",
+    "labels": [
+      "area:web",
+      "priority:P0"
+    ],
+    "milestone": "M0 — Runnable foundation",
+    "depends_on": []
+  },
+  {
+    "id": "SUS-003",
+    "title": "[SUS-003] Add SQLite migrations and deterministic seed data",
+    "body_file": "planning/generated/SUS-003.md",
+    "labels": [
+      "area:data",
+      "priority:P0"
+    ],
+    "milestone": "M0 — Runnable foundation",
+    "depends_on": []
+  },
+  {
+    "id": "SUS-004",
+    "title": "[SUS-004] Expand CI to Rust, web, and route contract parity",
+    "body_file": "planning/generated/SUS-004.md",
+    "labels": [
+      "area:quality",
+      "priority:P1"
+    ],
+    "milestone": "M0 — Runnable foundation",
+    "depends_on": [
+      "SUS-002"
+    ]
+  },
+  {
+    "id": "SUS-005",
+    "title": "[SUS-005] Build catalog APIs and inventory workspace",
+    "body_file": "planning/generated/SUS-005.md",
+    "labels": [
+      "area:inventory",
+      "priority:P1"
+    ],
+    "milestone": "M1 — Inventory truth",
+    "depends_on": [
+      "SUS-002",
+      "SUS-003"
+    ]
+  },
+  {
+    "id": "SUS-006",
+    "title": "[SUS-006] Implement transactional stock ledger and balances",
+    "body_file": "planning/generated/SUS-006.md",
+    "labels": [
+      "area:inventory",
+      "priority:P0"
+    ],
+    "milestone": "M1 — Inventory truth",
+    "depends_on": [
+      "SUS-003"
+    ]
+  },
+  {
+    "id": "SUS-007",
+    "title": "[SUS-007] Add stock observations and versioned reconciliation",
+    "body_file": "planning/generated/SUS-007.md",
+    "labels": [
+      "area:inventory",
+      "priority:P1"
+    ],
+    "milestone": "M1 — Inventory truth",
+    "depends_on": [
+      "SUS-005",
+      "SUS-006"
+    ]
+  },
+  {
+    "id": "SUS-008",
+    "title": "[SUS-008] Add CSV preview, validation, commit, and export",
+    "body_file": "planning/generated/SUS-008.md",
+    "labels": [
+      "area:inventory",
+      "priority:P1"
+    ],
+    "milestone": "M1 — Inventory truth",
+    "depends_on": [
+      "SUS-005",
+      "SUS-006"
+    ]
+  },
+  {
+    "id": "SUS-009",
+    "title": "[SUS-009] Implement users, sessions, and role enforcement",
+    "body_file": "planning/generated/SUS-009.md",
+    "labels": [
+      "area:security",
+      "priority:P0"
+    ],
+    "milestone": "M1 — Inventory truth",
+    "depends_on": [
+      "SUS-003",
+      "SUS-002"
+    ]
+  },
+  {
+    "id": "SUS-010",
+    "title": "[SUS-010] Expose audit history and freshness indicators",
+    "body_file": "planning/generated/SUS-010.md",
+    "labels": [
+      "area:inventory",
+      "priority:P1"
+    ],
+    "milestone": "M1 — Inventory truth",
+    "depends_on": [
+      "SUS-006",
+      "SUS-009"
+    ]
+  },
+  {
+    "id": "SUS-011",
+    "title": "[SUS-011] Implement coverage and replenishment estimates",
+    "body_file": "planning/generated/SUS-011.md",
+    "labels": [
+      "area:forecast",
+      "priority:P0"
+    ],
+    "milestone": "M2 — Replenishment loop",
+    "depends_on": [
+      "SUS-006",
+      "SUS-005"
+    ]
+  },
+  {
+    "id": "SUS-012",
+    "title": "[SUS-012] Build shortage queue with traceable calculations",
+    "body_file": "planning/generated/SUS-012.md",
+    "labels": [
+      "area:forecast",
+      "priority:P1"
+    ],
+    "milestone": "M2 — Replenishment loop",
+    "depends_on": [
+      "SUS-011",
+      "SUS-010"
+    ]
+  },
+  {
+    "id": "SUS-013",
+    "title": "[SUS-013] Validate cargo and draft delivery proposals",
+    "body_file": "planning/generated/SUS-013.md",
+    "labels": [
+      "area:delivery",
+      "priority:P0"
+    ],
+    "milestone": "M2 — Replenishment loop",
+    "depends_on": [
+      "SUS-005",
+      "SUS-006",
+      "SUS-012",
+      "SUS-009"
+    ]
+  },
+  {
+    "id": "SUS-014",
+    "title": "[SUS-014] Connect route planning and scenario comparison",
+    "body_file": "planning/generated/SUS-014.md",
+    "labels": [
+      "area:routing",
+      "priority:P1"
+    ],
+    "milestone": "M2 — Replenishment loop",
+    "depends_on": [
+      "SUS-002",
+      "SUS-013"
+    ]
+  },
+  {
+    "id": "SUS-015",
+    "title": "[SUS-015] Approve deliveries with atomic reservations",
+    "body_file": "planning/generated/SUS-015.md",
+    "labels": [
+      "area:delivery",
+      "priority:P0"
+    ],
+    "milestone": "M2 — Replenishment loop",
+    "depends_on": [
+      "SUS-013",
+      "SUS-014",
+      "SUS-009",
+      "SUS-010"
+    ]
+  },
+  {
+    "id": "SUS-016",
+    "title": "[SUS-016] Dispatch and receive deliveries with conserved quantities",
+    "body_file": "planning/generated/SUS-016.md",
+    "labels": [
+      "area:delivery",
+      "priority:P0"
+    ],
+    "milestone": "M2 — Replenishment loop",
+    "depends_on": [
+      "SUS-015"
+    ]
+  },
+  {
+    "id": "SUS-017",
+    "title": "[SUS-017] Build delivery execution and exception screens",
+    "body_file": "planning/generated/SUS-017.md",
+    "labels": [
+      "area:web",
+      "priority:P1"
+    ],
+    "milestone": "M2 — Replenishment loop",
+    "depends_on": [
+      "SUS-016",
+      "SUS-010"
+    ]
+  },
+  {
+    "id": "SUS-018",
+    "title": "[SUS-018] Add browser app shell and bounded data cache",
+    "body_file": "planning/generated/SUS-018.md",
+    "labels": [
+      "area:offline",
+      "priority:P1"
+    ],
+    "milestone": "M3 — Resilient MVP",
+    "depends_on": [
+      "SUS-002",
+      "SUS-009",
+      "SUS-010"
+    ]
+  },
+  {
+    "id": "SUS-019",
+    "title": "[SUS-019] Implement durable outbox and idempotent sync API",
+    "body_file": "planning/generated/SUS-019.md",
+    "labels": [
+      "area:offline",
+      "priority:P0"
+    ],
+    "milestone": "M3 — Resilient MVP",
+    "depends_on": [
+      "SUS-007",
+      "SUS-016",
+      "SUS-018"
+    ]
+  },
+  {
+    "id": "SUS-020",
+    "title": "[SUS-020] Build sync status and conflict resolution workflow",
+    "body_file": "planning/generated/SUS-020.md",
+    "labels": [
+      "area:offline",
+      "priority:P0"
+    ],
+    "milestone": "M3 — Resilient MVP",
+    "depends_on": [
+      "SUS-019"
+    ]
+  },
+  {
+    "id": "SUS-021",
+    "title": "[SUS-021] Verify the complete replenishment and outage scenario",
+    "body_file": "planning/generated/SUS-021.md",
+    "labels": [
+      "area:quality",
+      "priority:P0"
+    ],
+    "milestone": "M3 — Resilient MVP",
+    "depends_on": [
+      "SUS-017",
+      "SUS-020"
+    ]
+  },
+  {
+    "id": "SUS-022",
+    "title": "[SUS-022] Package deployment, migrations, backup, and restore",
+    "body_file": "planning/generated/SUS-022.md",
+    "labels": [
+      "area:operations",
+      "priority:P1"
+    ],
+    "milestone": "M3 — Resilient MVP",
+    "depends_on": [
+      "SUS-016",
+      "SUS-009"
+    ]
+  },
+  {
+    "id": "SUS-023",
+    "title": "[SUS-023] Complete accessibility and performance review",
+    "body_file": "planning/generated/SUS-023.md",
+    "labels": [
+      "area:web",
+      "priority:P1"
+    ],
+    "milestone": "M3 — Resilient MVP",
+    "depends_on": [
+      "SUS-017",
+      "SUS-020"
+    ]
+  },
+  {
+    "id": "SUS-024",
+    "title": "[SUS-024] Publish API and contributor documentation",
+    "body_file": "planning/generated/SUS-024.md",
+    "labels": [
+      "area:docs",
+      "priority:P1"
+    ],
+    "milestone": "M3 — Resilient MVP",
+    "depends_on": [
+      "SUS-019",
+      "SUS-022"
+    ]
+  },
+  {
+    "id": "SUS-025",
+    "title": "[SUS-025] Prepare v0.1 release and security gate",
+    "body_file": "planning/generated/SUS-025.md",
+    "labels": [
+      "area:security",
+      "priority:P0"
+    ],
+    "milestone": "M3 — Resilient MVP",
+    "depends_on": [
+      "SUS-001",
+      "SUS-004",
+      "SUS-021",
+      "SUS-022",
+      "SUS-023",
+      "SUS-024"
+    ]
+  },
+  {
+    "id": "SUS-026",
+    "title": "[SUS-026] Prototype optional read-only logistics assistant",
+    "body_file": "planning/generated/SUS-026.md",
+    "labels": [
+      "area:assistant",
+      "priority:P2"
+    ],
+    "milestone": "M4 — Pilot",
+    "depends_on": [
+      "SUS-025"
+    ]
+  },
+  {
+    "id": "SUS-027",
+    "title": "[SUS-027] Pilot CSV/API integration and barcode capture",
+    "body_file": "planning/generated/SUS-027.md",
+    "labels": [
+      "area:integration",
+      "priority:P2"
+    ],
+    "milestone": "M4 — Pilot",
+    "depends_on": [
+      "SUS-025"
+    ]
+  },
+  {
+    "id": "SUS-028",
+    "title": "[SUS-028] Evaluate real-road maps and routing data",
+    "body_file": "planning/generated/SUS-028.md",
+    "labels": [
+      "area:routing",
+      "priority:P2"
+    ],
+    "milestone": "M4 — Pilot",
+    "depends_on": [
+      "SUS-025"
+    ]
+  },
+  {
+    "id": "SUS-029",
+    "title": "[SUS-029] Design multi-stop fleet planning and improved forecasts",
+    "body_file": "planning/generated/SUS-029.md",
+    "labels": [
+      "area:research",
+      "priority:P3"
+    ],
+    "milestone": "M5 — Expanded planning",
+    "depends_on": [
+      "SUS-027",
+      "SUS-028"
+    ]
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "revision": "synthetic-2026-10-12",
+  "nodes": [
+    {"id":0,"name":"Supply depot","x":95,"y":270},
+    {"id":1,"name":"West junction","x":260,"y":150},
+    {"id":2,"name":"River bridge","x":440,"y":145},
+    {"id":3,"name":"East junction","x":610,"y":160},
+    {"id":4,"name":"Field hospital","x":790,"y":265},
+    {"id":5,"name":"South junction","x":265,"y":410},
+    {"id":6,"name":"Mountain pass","x":505,"y":415},
+    {"id":7,"name":"West ferry terminal","x":365,"y":290},
+    {"id":8,"name":"East ferry terminal","x":555,"y":290}
+  ],
+  "edges": [
+    {"id":"west-road","from":0,"to":1,"km":9,"speed_kph":55,"mode":"ground","max_tonnes":80,"max_height_m":5,"grade_pct":2,"weather":0.1},
+    {"id":"bridge-approach","from":1,"to":2,"km":8,"speed_kph":60,"mode":"ground","max_tonnes":80,"max_height_m":5,"grade_pct":1,"weather":0.1},
+    {"id":"river-bridge","from":2,"to":3,"km":6,"speed_kph":50,"mode":"ground","max_tonnes":24,"max_height_m":4.2,"grade_pct":1,"weather":0.2},
+    {"id":"hospital-road","from":3,"to":4,"km":9,"speed_kph":55,"mode":"ground","max_tonnes":80,"max_height_m":5,"grade_pct":2,"weather":0.1},
+    {"id":"south-road","from":0,"to":5,"km":12,"speed_kph":45,"mode":"ground","max_tonnes":80,"max_height_m":5,"grade_pct":3,"weather":0.2},
+    {"id":"mountain-road","from":5,"to":6,"km":15,"speed_kph":40,"mode":"ground","max_tonnes":80,"max_height_m":5,"grade_pct":8,"weather":0.9},
+    {"id":"south-connector","from":6,"to":4,"km":16,"speed_kph":45,"mode":"ground","max_tonnes":80,"max_height_m":5,"grade_pct":6,"weather":0.6},
+    {"id":"ferry-approach","from":1,"to":7,"km":5,"speed_kph":40,"mode":"ground","max_tonnes":80,"max_height_m":5,"grade_pct":2,"weather":0.1},
+    {"id":"river-ferry","from":7,"to":8,"km":4,"speed_kph":20,"mode":"ferry","max_tonnes":60,"max_height_m":5,"grade_pct":0,"weather":0.3,"headway_minutes":30,"transfer_minutes":6},
+    {"id":"ferry-exit","from":8,"to":3,"km":4,"speed_kph":40,"mode":"ground","max_tonnes":80,"max_height_m":5,"grade_pct":2,"weather":0.1}
+  ]
+}

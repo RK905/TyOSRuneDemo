@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sustain Route — Routing lab</title><link rel="stylesheet" href="/style.css"><script type="module" src="/app.js"></script></head>
+<body>
+<header><a class="brand" href="/" aria-label="Sustain Route home"><span class="mark">S↗</span> SUSTAIN<span class="brand-light">/ ROUTE</span></a><div class="header-right"><span class="status-dot"></span> LOCAL NETWORK <span class="divider"></span> ENGINEERING DEMO</div></header>
+<main>
+<section class="intro"><div><div class="eyebrow">ROUTING LAB / 001</div><h1>A route is only as good<br>as its constraints.</h1><p>Test how a sustainment network responds to changing conditions.<br>Vehicle limits, road availability, and transport schedules — in one engine.</p></div><div class="intro-meta"><span class="pill">SYNTHETIC DATA</span><p>9 nodes · 10 bidirectional links<br>Ground + scheduled ferry<br><span id="engine-label">Connecting to engine…</span></p></div></section>
+<section class="workspace">
+<aside class="panel controls"><div class="panel-heading"><h2>Mission parameters</h2><span>01</span></div>
+<form id="route-form">
+<label>Origin<select id="origin" name="origin"></select></label><label>Destination<select id="destination" name="destination"></select></label>
+<div class="two"><label>Departure<input id="departure" type="time" value="08:00" required></label><label>Vehicle weight <span>t</span><input id="weight" type="number" value="18" min="1" max="100" step="1" required></label></div>
+<div class="two"><label>Height <span>m</span><input id="height" type="number" value="3.5" min="1" max="6" step="0.1" required></label><label>Max grade <span>%</span><input id="grade" type="number" value="10" min="0" max="20" step="1" required></label></div>
+<label class="range-label">Weather severity <output id="weather-value">Clear · 0%</output><input id="weather" type="range" min="0" max="100" value="0"></label>
+<label class="check"><input id="ferry" type="checkbox"><span>Allow ferry transfers<small>30-minute departures · 6-minute transfers</small></span></label>
+<label class="check"><input id="closure" type="checkbox"><span>Close river bridge<small>08:00–12:00 · traversal cannot overlap</small></span></label>
+<button class="primary" type="submit" id="calculate">Calculate route <span>↗</span></button>
+</form>
+<div class="scenario-box"><div class="eyebrow">QUICK SCENARIOS</div><button data-scenario="baseline" class="scenario">01 <span>Standard resupply</span> ↗</button><button data-scenario="closure" class="scenario">02 <span>Bridge unavailable</span> ↗</button><button data-scenario="heavy" class="scenario">03 <span>Heavy load + ferry</span> ↗</button><button data-scenario="storm" class="scenario">04 <span>Weather degradation</span> ↗</button></div>
+</aside>
+<div class="right-column"><section class="panel map-panel"><div class="panel-heading"><h2>Network operating picture</h2><span class="map-tag">SCHEMATIC / LOCAL</span></div><div class="map-wrap"><svg id="map" viewBox="0 0 900 520" role="img" aria-label="Synthetic transport network and selected route"></svg><div class="map-legend"><span><i class="legend-route"></i>Selected route</span><span><i class="legend-road"></i>Road</span><span><i class="legend-ferry"></i>Ferry</span><span><i class="legend-blocked"></i>Unavailable</span></div></div><div class="map-footer"><span><span class="status-dot"></span> Offline network snapshot</span><span id="revision"></span></div></section>
+<section class="panel result-panel" aria-live="polite"><div class="result-heading"><div><div class="eyebrow">ROUTE ASSESSMENT</div><h2 id="result-title">Calculating earliest arrival…</h2></div><span class="pill" id="route-status">PENDING</span></div><div id="error" role="alert" hidden></div><div class="stats" id="stats"></div><p id="explanation" class="explanation"></p><div id="legs" class="legs"></div><details><summary>Inspect engine response <span>JSON ↓</span></summary><pre id="json"></pre></details></section></div>
+</section>
+<footer><span>Built for engineering review. Synthetic topology; no operational data.</span><span>TIME-DEPENDENT DIJKSTRA <span class="footer-slash">/</span> FIFO COST MODEL</span></footer>
+</main></body></html>

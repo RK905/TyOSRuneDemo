@@ -1,0 +1,682 @@
+{
+  "schema_version": 1,
+  "issues": [
+    {
+      "id": "SUS-001",
+      "title": "Establish project identity and open-source release policy",
+      "milestone": "M0",
+      "priority": "P1",
+      "area": "foundation",
+      "estimate_days": 0.5,
+      "depends_on": [],
+      "status": "Backlog",
+      "labels": [
+        "area:foundation",
+        "priority:P1"
+      ],
+      "description": "Record repository owner, original working name and provenance of existing code; adopt the chosen license with correct attribution.",
+      "acceptance_criteria": [
+        "License and attribution committed before public release",
+        "real maintainers assigned",
+        "private security reporting and contribution policy documented."
+      ]
+    },
+    {
+      "id": "SUS-002",
+      "title": "Restore a runnable web application and routing demo",
+      "milestone": "M0",
+      "priority": "P0",
+      "area": "web",
+      "estimate_days": 2,
+      "depends_on": [],
+      "status": "Backlog",
+      "labels": [
+        "area:web",
+        "priority:P0"
+      ],
+      "description": "Introduce React/TypeScript build and replace missing web asset references in both development and Rust startup paths.",
+      "acceptance_criteria": [
+        "Fresh checkout can build and open the UI",
+        "bundled network renders",
+        "route request and no-feasible-route errors display",
+        "startup commands documented."
+      ]
+    },
+    {
+      "id": "SUS-003",
+      "title": "Add SQLite migrations and deterministic seed data",
+      "milestone": "M0",
+      "priority": "P0",
+      "area": "data",
+      "estimate_days": 1.5,
+      "depends_on": [],
+      "status": "Backlog",
+      "labels": [
+        "area:data",
+        "priority:P0"
+      ],
+      "description": "Create versioned schema with operation IDs, entity versions, actors, item units, ledger, reservations, deliveries, and audit.",
+      "acceptance_criteria": [
+        "Empty database migrates and seeds repeatably",
+        "synthetic fixture covers three stock sites/six items/three vehicles",
+        "restart preserves data."
+      ]
+    },
+    {
+      "id": "SUS-004",
+      "title": "Expand CI to Rust, web, and route contract parity",
+      "milestone": "M0",
+      "priority": "P1",
+      "area": "quality",
+      "estimate_days": 1,
+      "depends_on": [
+        "SUS-002"
+      ],
+      "status": "Backlog",
+      "labels": [
+        "area:quality",
+        "priority:P1"
+      ],
+      "description": "Add locked builds, cargo tests, frontend checks, and shared request/result fixtures for the Rust and JavaScript solvers.",
+      "acceptance_criteria": [
+        "CI compiles the application and compares successful, invalid, closure, and ferry cases",
+        "invalid graph tests included",
+        "local commands documented."
+      ]
+    },
+    {
+      "id": "SUS-005",
+      "title": "Build catalog APIs and inventory workspace",
+      "milestone": "M1",
+      "priority": "P1",
+      "area": "inventory",
+      "estimate_days": 1.5,
+      "depends_on": [
+        "SUS-002",
+        "SUS-003"
+      ],
+      "status": "Backlog",
+      "labels": [
+        "area:inventory",
+        "priority:P1"
+      ],
+      "description": "Create location/item/vehicle forms and a searchable inventory table with explicit units and transport-node mapping.",
+      "acceptance_criteria": [
+        "Create/edit validation works through API and UI",
+        "duplicate SKU and unknown nodes fail clearly",
+        "keyboard and empty states supported."
+      ]
+    },
+    {
+      "id": "SUS-006",
+      "title": "Implement transactional stock ledger and balances",
+      "milestone": "M1",
+      "priority": "P0",
+      "area": "inventory",
+      "estimate_days": 2,
+      "depends_on": [
+        "SUS-003"
+      ],
+      "status": "Backlog",
+      "labels": [
+        "area:inventory",
+        "priority:P0"
+      ],
+      "description": "Implement receipt, consumption, and compensating adjustment events with scaled quantities and materialized balances.",
+      "acceptance_criteria": [
+        "Restart-safe balances equal ledger totals",
+        "negative stock is rejected",
+        "concurrent writes remain consistent",
+        "adjustments are excluded from consumption rates."
+      ]
+    },
+    {
+      "id": "SUS-007",
+      "title": "Add stock observations and versioned reconciliation",
+      "milestone": "M1",
+      "priority": "P1",
+      "area": "inventory",
+      "estimate_days": 1,
+      "depends_on": [
+        "SUS-005",
+        "SUS-006"
+      ],
+      "status": "Backlog",
+      "labels": [
+        "area:inventory",
+        "priority:P1"
+      ],
+      "description": "Capture physical counts as observations and apply reviewed differences as explicit ledger adjustments.",
+      "acceptance_criteria": [
+        "Count with stale balance version becomes conflict",
+        "operator cannot silently overwrite stock",
+        "coordinator correction records reason and actor."
+      ]
+    },
+    {
+      "id": "SUS-008",
+      "title": "Add CSV preview, validation, commit, and export",
+      "milestone": "M1",
+      "priority": "P1",
+      "area": "inventory",
+      "estimate_days": 1,
+      "depends_on": [
+        "SUS-005",
+        "SUS-006"
+      ],
+      "status": "Backlog",
+      "labels": [
+        "area:inventory",
+        "priority:P1"
+      ],
+      "description": "Support documented item/stock import templates and versioned previews.",
+      "acceptance_criteria": [
+        "Invalid rows show row-level errors",
+        "repeated commit is idempotent",
+        "malformed units fail",
+        "export neutralizes spreadsheet formula injection."
+      ]
+    },
+    {
+      "id": "SUS-009",
+      "title": "Implement users, sessions, and role enforcement",
+      "milestone": "M1",
+      "priority": "P0",
+      "area": "security",
+      "estimate_days": 2,
+      "depends_on": [
+        "SUS-003",
+        "SUS-002"
+      ],
+      "status": "Backlog",
+      "labels": [
+        "area:security",
+        "priority:P0"
+      ],
+      "description": "Add Viewer/Operator/Coordinator/Admin roles with secure sessions and permissions on all domain mutations.",
+      "acceptance_criteria": [
+        "Viewer writes denied by API",
+        "secure password hashing, CSRF defense, expiry and login limits verified",
+        "demo mode explicit",
+        "role changes invalidate unauthorized actions."
+      ]
+    },
+    {
+      "id": "SUS-010",
+      "title": "Expose audit history and freshness indicators",
+      "milestone": "M1",
+      "priority": "P1",
+      "area": "inventory",
+      "estimate_days": 1,
+      "depends_on": [
+        "SUS-006",
+        "SUS-009"
+      ],
+      "status": "Backlog",
+      "labels": [
+        "area:inventory",
+        "priority:P1"
+      ],
+      "description": "Write audit events in domain transactions and display entity timelines plus last-confirmed timestamps.",
+      "acceptance_criteria": [
+        "Events show server actor/time/correlation",
+        "failed writes do not appear successful",
+        "stale/missing observation labels persist in UI."
+      ]
+    },
+    {
+      "id": "SUS-011",
+      "title": "Implement coverage and replenishment estimates",
+      "milestone": "M2",
+      "priority": "P0",
+      "area": "forecast",
+      "estimate_days": 1.5,
+      "depends_on": [
+        "SUS-006",
+        "SUS-005"
+      ],
+      "status": "Backlog",
+      "labels": [
+        "area:forecast",
+        "priority:P0"
+      ],
+      "description": "Calculate trailing usage, manual fallback, days of cover, reorder threshold, and target replenishment.",
+      "acceptance_criteria": [
+        "Independent 120/40 example produces 3 days cover and 160 suggested cases",
+        "zero/insufficient usage explicit",
+        "units, rounding and inbound horizon tested."
+      ]
+    },
+    {
+      "id": "SUS-012",
+      "title": "Build shortage queue with traceable calculations",
+      "milestone": "M2",
+      "priority": "P1",
+      "area": "forecast",
+      "estimate_days": 1,
+      "depends_on": [
+        "SUS-011",
+        "SUS-010"
+      ],
+      "status": "Backlog",
+      "labels": [
+        "area:forecast",
+        "priority:P1"
+      ],
+      "description": "Rank shortage alerts and expose calculation inputs, policy settings, and freshness.",
+      "acceptance_criteria": [
+        "User can inspect and edit rate/lead/safety/target policy by role",
+        "changed policy recalculates",
+        "no unsupported confidence percentage is shown."
+      ]
+    },
+    {
+      "id": "SUS-013",
+      "title": "Validate cargo and draft delivery proposals",
+      "milestone": "M2",
+      "priority": "P0",
+      "area": "delivery",
+      "estimate_days": 1.5,
+      "depends_on": [
+        "SUS-005",
+        "SUS-006",
+        "SUS-012",
+        "SUS-009"
+      ],
+      "status": "Backlog",
+      "labels": [
+        "area:delivery",
+        "priority:P0"
+      ],
+      "description": "Create one-source/one-destination drafts with line items and payload mass/volume totals.",
+      "acceptance_criteria": [
+        "Unknown units or missing cargo conversion block approval",
+        "vehicle payload/volume capacity checked",
+        "route weight includes vehicle tare plus payload."
+      ]
+    },
+    {
+      "id": "SUS-014",
+      "title": "Connect route planning and scenario comparison",
+      "milestone": "M2",
+      "priority": "P1",
+      "area": "routing",
+      "estimate_days": 1.5,
+      "depends_on": [
+        "SUS-002",
+        "SUS-013"
+      ],
+      "status": "Backlog",
+      "labels": [
+        "area:routing",
+        "priority:P1"
+      ],
+      "description": "Connect draft delivery to existing routing engine and display route, constraints, waits, revision, and ETA.",
+      "acceptance_criteria": [
+        "Bridge closure/overweight/ferry scenarios update visibly",
+        "impossible route prevents approval",
+        "synthetic graph and ETA assumptions clearly labeled."
+      ]
+    },
+    {
+      "id": "SUS-015",
+      "title": "Approve deliveries with atomic reservations",
+      "milestone": "M2",
+      "priority": "P0",
+      "area": "delivery",
+      "estimate_days": 2,
+      "depends_on": [
+        "SUS-013",
+        "SUS-014",
+        "SUS-009",
+        "SUS-010"
+      ],
+      "status": "Backlog",
+      "labels": [
+        "area:delivery",
+        "priority:P0"
+      ],
+      "description": "Approve against current stock, graph, delivery, and vehicle versions in one transaction.",
+      "acceptance_criteria": [
+        "Competing approvals cannot over-reserve stock or vehicle interval",
+        "stale proposals conflict",
+        "identical operation retry returns same result",
+        "cancellation releases reservations."
+      ]
+    },
+    {
+      "id": "SUS-016",
+      "title": "Dispatch and receive deliveries with conserved quantities",
+      "milestone": "M2",
+      "priority": "P0",
+      "area": "delivery",
+      "estimate_days": 2,
+      "depends_on": [
+        "SUS-015"
+      ],
+      "status": "Backlog",
+      "labels": [
+        "area:delivery",
+        "priority:P0"
+      ],
+      "description": "Implement dispatch, partial receipts, completion, returns, and discrepancy reconciliation.",
+      "acceptance_criteria": [
+        "Dispatch removes source stock/adds transit",
+        "partial receipt adds only received amount",
+        "retry/excess receipt blocked",
+        "dispatched cancellation cannot erase inventory."
+      ]
+    },
+    {
+      "id": "SUS-017",
+      "title": "Build delivery execution and exception screens",
+      "milestone": "M2",
+      "priority": "P1",
+      "area": "web",
+      "estimate_days": 1.5,
+      "depends_on": [
+        "SUS-016",
+        "SUS-010"
+      ],
+      "status": "Backlog",
+      "labels": [
+        "area:web",
+        "priority:P1"
+      ],
+      "description": "Expose permitted transitions with role-aware controls and clear exception state.",
+      "acceptance_criteria": [
+        "120/40 replenishment scenario can be completed entirely through UI",
+        "partial receipt and discrepancy visible",
+        "rejected transitions show actionable errors."
+      ]
+    },
+    {
+      "id": "SUS-018",
+      "title": "Add browser app shell and bounded data cache",
+      "milestone": "M3",
+      "priority": "P1",
+      "area": "offline",
+      "estimate_days": 1.5,
+      "depends_on": [
+        "SUS-002",
+        "SUS-009",
+        "SUS-010"
+      ],
+      "status": "Backlog",
+      "labels": [
+        "area:offline",
+        "priority:P1"
+      ],
+      "description": "Cache application assets and authorized snapshot in service worker/IndexedDB.",
+      "acceptance_criteria": [
+        "Initialized client opens after disconnect/reload",
+        "first-time offline state explained",
+        "freshness visible",
+        "logout/account switch isolates cached data",
+        "quota errors handled."
+      ]
+    },
+    {
+      "id": "SUS-019",
+      "title": "Implement durable outbox and idempotent sync API",
+      "milestone": "M3",
+      "priority": "P0",
+      "area": "offline",
+      "estimate_days": 2,
+      "depends_on": [
+        "SUS-007",
+        "SUS-016",
+        "SUS-018"
+      ],
+      "status": "Backlog",
+      "labels": [
+        "area:offline",
+        "priority:P0"
+      ],
+      "description": "Queue field observations/receipt claims and synchronize by stable IDs and server cursor.",
+      "acceptance_criteria": [
+        "Disconnect/reload/reconnect accepts a claim once",
+        "changed payload with reused ID conflicts",
+        "interrupted acknowledgements replay safely",
+        "per-operation errors retained."
+      ]
+    },
+    {
+      "id": "SUS-020",
+      "title": "Build sync status and conflict resolution workflow",
+      "milestone": "M3",
+      "priority": "P0",
+      "area": "offline",
+      "estimate_days": 1.5,
+      "depends_on": [
+        "SUS-019"
+      ],
+      "status": "Backlog",
+      "labels": [
+        "area:offline",
+        "priority:P0"
+      ],
+      "description": "Show queued, accepted, rejected, and conflicting operations with permitted resolution actions.",
+      "acceptance_criteria": [
+        "Two-device stale count requires reviewed adjustment",
+        "expired auth blocks uploads",
+        "manual retry works without Background Sync",
+        "failed claims remain inspectable."
+      ]
+    },
+    {
+      "id": "SUS-021",
+      "title": "Verify the complete replenishment and outage scenario",
+      "milestone": "M3",
+      "priority": "P0",
+      "area": "quality",
+      "estimate_days": 2,
+      "depends_on": [
+        "SUS-017",
+        "SUS-020"
+      ],
+      "status": "Backlog",
+      "labels": [
+        "area:quality",
+        "priority:P0"
+      ],
+      "description": "Add browser and API integration coverage for the complete demo and core failure paths.",
+      "acceptance_criteria": [
+        "Clean fixture completes forecast-to-receipt",
+        "concurrency, replay, partial receipts, graph changes, restart and offline conflict cases pass with recorded evidence."
+      ]
+    },
+    {
+      "id": "SUS-022",
+      "title": "Package deployment, migrations, backup, and restore",
+      "milestone": "M3",
+      "priority": "P1",
+      "area": "operations",
+      "estimate_days": 1.5,
+      "depends_on": [
+        "SUS-016",
+        "SUS-009"
+      ],
+      "status": "Backlog",
+      "labels": [
+        "area:operations",
+        "priority:P1"
+      ],
+      "description": "Provide single-service container and persistent database volume with local quickstart and remote TLS guidance.",
+      "acceptance_criteria": [
+        "Fresh install/seed works",
+        "backup restores to separate instance",
+        "upgrade migration tested",
+        "live databases and secrets excluded",
+        "readiness checks database."
+      ]
+    },
+    {
+      "id": "SUS-023",
+      "title": "Complete accessibility and performance review",
+      "milestone": "M3",
+      "priority": "P1",
+      "area": "web",
+      "estimate_days": 1,
+      "depends_on": [
+        "SUS-017",
+        "SUS-020"
+      ],
+      "status": "Backlog",
+      "labels": [
+        "area:web",
+        "priority:P1"
+      ],
+      "description": "Review keyboard operation, labels, contrast, narrow layouts and measured performance targets.",
+      "acceptance_criteria": [
+        "Core loop usable with keyboard",
+        "statuses not color-only",
+        "agreed reference-machine measurements documented against PRODUCT targets",
+        "regressions resolved."
+      ]
+    },
+    {
+      "id": "SUS-024",
+      "title": "Publish API and contributor documentation",
+      "milestone": "M3",
+      "priority": "P1",
+      "area": "docs",
+      "estimate_days": 1,
+      "depends_on": [
+        "SUS-019",
+        "SUS-022"
+      ],
+      "status": "Backlog",
+      "labels": [
+        "area:docs",
+        "priority:P1"
+      ],
+      "description": "Document API schemas, units, state transitions, conflict responses, installation, demo, and contribution workflow.",
+      "acceptance_criteria": [
+        "Examples work against running API",
+        "fresh checkout instructions tested by another person where available",
+        "limitations and supported browsers documented."
+      ]
+    },
+    {
+      "id": "SUS-025",
+      "title": "Prepare v0.1 release and security gate",
+      "milestone": "M3",
+      "priority": "P0",
+      "area": "security",
+      "estimate_days": 1,
+      "depends_on": [
+        "SUS-001",
+        "SUS-004",
+        "SUS-021",
+        "SUS-022",
+        "SUS-023",
+        "SUS-024"
+      ],
+      "status": "Backlog",
+      "labels": [
+        "area:security",
+        "priority:P0"
+      ],
+      "description": "Audit dependencies and secrets, verify release checklist, tag source, package build outputs and changelog.",
+      "acceptance_criteria": [
+        "No unresolved P0/P1 data-integrity/core defects",
+        "license and security reporting active",
+        "acceptance evidence attached",
+        "release notes match implemented features."
+      ]
+    },
+    {
+      "id": "SUS-026",
+      "title": "Prototype optional read-only logistics assistant",
+      "milestone": "M4",
+      "priority": "P2",
+      "area": "assistant",
+      "estimate_days": null,
+      "depends_on": [
+        "SUS-025"
+      ],
+      "status": "Backlog",
+      "labels": [
+        "area:assistant",
+        "priority:P2"
+      ],
+      "description": "Design provider-neutral assistant over authorized inventory/forecast/delivery reads, disabled by default.",
+      "acceptance_criteria": [
+        "Answers cite data and timestamps",
+        "tool allowlist read-only",
+        "unknown data stated",
+        "offline/unconfigured mode still usable",
+        "evaluation fixtures reject fabricated stock values."
+      ]
+    },
+    {
+      "id": "SUS-027",
+      "title": "Pilot CSV/API integration and barcode capture",
+      "milestone": "M4",
+      "priority": "P2",
+      "area": "integration",
+      "estimate_days": null,
+      "depends_on": [
+        "SUS-025"
+      ],
+      "status": "Backlog",
+      "labels": [
+        "area:integration",
+        "priority:P2"
+      ],
+      "description": "Choose one real pilot workflow and one adapter; explore camera/barcode or external stock feed with fixture-backed contracts.",
+      "acceptance_criteria": [
+        "Adapter boundaries documented",
+        "duplicate/late events tested",
+        "user feedback collected",
+        "no unreviewed quantity overwrite."
+      ]
+    },
+    {
+      "id": "SUS-028",
+      "title": "Evaluate real-road maps and routing data",
+      "milestone": "M4",
+      "priority": "P2",
+      "area": "routing",
+      "estimate_days": null,
+      "depends_on": [
+        "SUS-025"
+      ],
+      "status": "Backlog",
+      "labels": [
+        "area:routing",
+        "priority:P2"
+      ],
+      "description": "Assess map/routing providers, data licenses, offline availability and vehicle-limit completeness using representative pilot routes.",
+      "acceptance_criteria": [
+        "Record coverage/cost/license matrix and benchmark",
+        "distinguish display maps from routing graph",
+        "retain synthetic demo without external dependencies."
+      ]
+    },
+    {
+      "id": "SUS-029",
+      "title": "Design multi-stop fleet planning and improved forecasts",
+      "milestone": "M5",
+      "priority": "P3",
+      "area": "research",
+      "estimate_days": null,
+      "depends_on": [
+        "SUS-027",
+        "SUS-028"
+      ],
+      "status": "Backlog",
+      "labels": [
+        "area:research",
+        "priority:P3"
+      ],
+      "description": "Use pilot data to scope time windows, stop sequencing, fleet scheduling, seasonal demand and database scaling.",
+      "acceptance_criteria": [
+        "ADR compares solver and storage alternatives with benchmarks",
+        "forecast evaluation uses held-out history",
+        "implementation tickets estimated before commitment."
+      ]
+    }
+  ]
+}

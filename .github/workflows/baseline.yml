@@ -1,0 +1,24 @@
+name: Baseline
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  routing-reference:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --test dev/engine.test.mjs
+      - run: node scripts/check-planning.mjs
+
+# This is the verified prototype baseline. SUS-004 adds required Rust,
+# frontend, and API parity checks after SUS-002 supplies the web build.
+# Do not treat this workflow as verification of the complete application.

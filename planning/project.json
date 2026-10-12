@@ -1,0 +1,222 @@
+{
+  "name": "Sustain — Open logistics",
+  "repository_name_proposal": "sustain",
+  "visibility_proposal": "public after release preparation",
+  "license_proposal": "Apache-2.0 (not yet applied)",
+  "milestones": [
+    {
+      "id": "M0",
+      "title": "M0 — Runnable foundation",
+      "description": "Build, schema, seeded route demo and application CI.",
+      "release": "v0.0.1"
+    },
+    {
+      "id": "M1",
+      "title": "M1 — Inventory truth",
+      "description": "Ledger, catalogs, roles, import and audit.",
+      "release": "v0.1.0"
+    },
+    {
+      "id": "M2",
+      "title": "M2 — Replenishment loop",
+      "description": "Forecast, plan, reserve, dispatch and receive.",
+      "release": "v0.1.0"
+    },
+    {
+      "id": "M3",
+      "title": "M3 — Resilient MVP",
+      "description": "Offline reconciliation, packaging, end-to-end checks and release.",
+      "release": "v0.1.0"
+    },
+    {
+      "id": "M4",
+      "title": "M4 — Pilot",
+      "description": "Optional assistant and selected integrations; estimate after pilot scope.",
+      "release": "v0.2.0"
+    },
+    {
+      "id": "M5",
+      "title": "M5 — Expanded planning",
+      "description": "Research and validate broader scheduling and forecasting.",
+      "release": "v0.3.0"
+    }
+  ],
+  "labels": [
+    {
+      "name": "area:foundation",
+      "color": "2563eb",
+      "description": "Work in foundation"
+    },
+    {
+      "name": "area:web",
+      "color": "2563eb",
+      "description": "Work in web"
+    },
+    {
+      "name": "area:data",
+      "color": "2563eb",
+      "description": "Work in data"
+    },
+    {
+      "name": "area:quality",
+      "color": "2563eb",
+      "description": "Work in quality"
+    },
+    {
+      "name": "area:inventory",
+      "color": "2563eb",
+      "description": "Work in inventory"
+    },
+    {
+      "name": "area:security",
+      "color": "2563eb",
+      "description": "Work in security"
+    },
+    {
+      "name": "area:forecast",
+      "color": "2563eb",
+      "description": "Work in forecast"
+    },
+    {
+      "name": "area:delivery",
+      "color": "2563eb",
+      "description": "Work in delivery"
+    },
+    {
+      "name": "area:routing",
+      "color": "2563eb",
+      "description": "Work in routing"
+    },
+    {
+      "name": "area:offline",
+      "color": "2563eb",
+      "description": "Work in offline"
+    },
+    {
+      "name": "area:operations",
+      "color": "2563eb",
+      "description": "Work in operations"
+    },
+    {
+      "name": "area:docs",
+      "color": "2563eb",
+      "description": "Work in docs"
+    },
+    {
+      "name": "area:assistant",
+      "color": "2563eb",
+      "description": "Work in assistant"
+    },
+    {
+      "name": "area:integration",
+      "color": "2563eb",
+      "description": "Work in integration"
+    },
+    {
+      "name": "area:research",
+      "color": "2563eb",
+      "description": "Work in research"
+    },
+    {
+      "name": "priority:P0",
+      "color": "b91c1c",
+      "description": "Release critical or prerequisite"
+    },
+    {
+      "name": "priority:P1",
+      "color": "ea580c",
+      "description": "Required MVP work"
+    },
+    {
+      "name": "priority:P2",
+      "color": "ca8a04",
+      "description": "Post-MVP follow-up"
+    },
+    {
+      "name": "priority:P3",
+      "color": "64748b",
+      "description": "Discovery"
+    },
+    {
+      "name": "good first issue",
+      "color": "16a34a",
+      "description": "Maintainer-reviewed, bounded newcomer task"
+    },
+    {
+      "name": "bug",
+      "color": "dc2626",
+      "description": "Reproducible defect"
+    }
+  ],
+  "fields": {
+    "Status": [
+      "Backlog",
+      "Ready",
+      "In progress",
+      "In review",
+      "Blocked",
+      "Done"
+    ],
+    "Priority": [
+      "P0",
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "Area": [
+      "foundation",
+      "web",
+      "data",
+      "quality",
+      "inventory",
+      "security",
+      "forecast",
+      "delivery",
+      "routing",
+      "offline",
+      "operations",
+      "docs",
+      "assistant",
+      "integration",
+      "research"
+    ],
+    "Planning ID": "text",
+    "Estimate days": "number",
+    "Iteration": "two-week iteration field",
+    "Target release": [
+      "v0.0.1",
+      "v0.1.0",
+      "v0.2.0",
+      "v0.3.0"
+    ]
+  },
+  "views": [
+    {
+      "name": "MVP board",
+      "layout": "board",
+      "group_by": "Status",
+      "scope": "M0–M3"
+    },
+    {
+      "name": "Current iteration",
+      "layout": "table",
+      "scope": "iteration:@current"
+    },
+    {
+      "name": "Roadmap",
+      "layout": "roadmap",
+      "group_by": "Milestone",
+      "scope": "all"
+    },
+    {
+      "name": "Blocked",
+      "layout": "table",
+      "scope": "Status = Blocked"
+    },
+    {
+      "name": "Later",
+      "layout": "table",
+      "scope": "M4–M5"
+    }
+  ]
+}

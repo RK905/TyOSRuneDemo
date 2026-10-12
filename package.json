@@ -1,0 +1,7 @@
+{
+  "name": "sustain-route-demo",
+  "private": true,
+  "type": "module",
+  "scripts": { "start": "node dev/server.mjs", "test": "node --test dev/engine.test.mjs" },
+  "engines": { "node": ">=20" }
+}

@@ -1,0 +1,23 @@
+name: Feature request
+description: Propose a change tied to a logistics workflow.
+title: "[Feature]: "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: User and problem
+      description: Who needs this and what workflow is blocked?
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Describe observable completion criteria and important failure cases.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Dependencies and scope
+      description: Reference the milestone, related planning IDs, and what should remain outside the change.
